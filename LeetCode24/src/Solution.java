@@ -1,39 +1,72 @@
-class ListNode {
-    int val;
-    ListNode next;
+import java.util.*;
 
-    ListNode(int x) {
-        val = x;
+ class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
     }
 }
+public class Solution {
+    public static ListNode plusAB(ListNode a, ListNode b) {
+        int numa=0;
+        int i=0;
+        while(a!=null)
 
-class Solution {
-    public ListNode swapPairs(ListNode head) {
+        {
+            numa=numa+a.val*(int)Math.pow(10,i);
+            a=a.next;i++;
+        }
+        int numb=0;
+        i=0;
+        while(b!=null)
+
+        {
+            numb=numb+b.val*(int)Math.pow(10,i);
+            b=b.next;i++;
+        }
+        int sum=numa+numb;
+        ListNode start=new ListNode(0);
+        ListNode st=start;
 
 
-        if (head == null) return null;
-
-
-        ListNode begin = new ListNode(0);
-        begin.next = head;
-        ListNode be = begin;
-        while (be.next != null && be.next.next != null) {
-            ListNode temp2 = be.next.next;
-            ListNode temp1 = be.next;
-            ListNode temp3 = be.next.next.next;
-
-            be.next = temp2;
-            temp2.next = temp1;
-            temp1.next = temp3;
-            be = be.next.next;
-
+        while(sum/10!=0)
+        {
+            ListNode ln=new ListNode(sum%10);
+            sum=sum/10;
+            st.next=ln;
+            st=st.next;
 
         }
+        ListNode ln=new ListNode(sum);
+
+        st.next=ln;
+        st=st.next;
 
 
-        return begin.next;
+        return start.next;
+
+
+    }
+    public static void main (String [] args){
+        ListNode a=new ListNode(1);
+        ListNode b=new ListNode(2);
+        ListNode c=new ListNode(3);
+        a.next=b;
+        b.next=c;
+
+        ListNode a1=new ListNode(4);
+        ListNode b1=new ListNode(2);
+        ListNode c1=new ListNode(1);
+        a1.next=b1;
+        b1.next=c1;
+       System.out.println(plusAB(a,a1).val);
+        System.out.println(plusAB(a,a1).next.val);
+        System.out.println(plusAB(a,a1).next.next.val);
+        //System.out.println(plusAB(a,a1).next.next.next.val);
+
 
 
     }
 }
-
