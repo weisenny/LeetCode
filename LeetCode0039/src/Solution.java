@@ -36,7 +36,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        int[] can = {2,3,5};
+        int[] can = {10,1,2,7,6,1,5};
         System.out.println(combinationSum(can,8));
 
     }
