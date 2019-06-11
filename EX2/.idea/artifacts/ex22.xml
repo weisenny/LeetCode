@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="ex22">
+    <output-path>$PROJECT_DIR$/out/artifacts/ex22</output-path>
+    <root id="archive" name="ex22.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/web" />
+    </root>
+  </artifact>
+</component>
